@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Currency Exchange</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('form').onsubmit = function() {
+                    // Send a GET request to the URL
+                    fetch("https://api.exchangeratesapi.io/latest?base=USD")
+                    // .then(response => response.json())    // Put response into json forms
+                    // .then(data => {console.log(data);}); // Log data to the console
+                    
+                    // Put the response into json form
+                    .then(function(response) {
+                        return response.json()
+                    })
+                    .then(function(data) {
+                        // Get currency from user input and convert to upper case
+                        const currency = document.querySelector('#currency').value.toUpperCase();
+
+                        // Get rate from data
+                        const rate = data.rates[currency];
+
+                        // Check if currencyis valid
+                        if (rate !== undefined) {
+                            const result = `1 USD is equal to ${rate.toFixed(3)} ${currency}`;
+                            document.querySelector('#result').innerHTML = result; // Display exchange on screen
+                        } else {
+                            document.querySelector('#result').innerHTML = 'Invalid Currency.';
+                        }
+                    })
+                    // Catch any errors and log them to the console
+                    .catch(function(error) {
+                        console.log('Error:', error);
+                    });
+                    return false; // Prevent default submission
+                }
+            });
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <input id="currency" placeholder="Currency" type="text" autofocus>
+            <input type="submit" value="Convert">
+        </form>
+        <div id="result">
+            
+        </div>
+
+        <div id="exchange">
+            <br>
+            some currencies <br>
+            CAD, HKD, ISK, PHP, DKK, HUF, CZK, AUD, RON, SEK, IDR, INR, BRL, RUB, HRK, JPY,
+            THB, CHF, SGD, PLN, BGN, TRY, CNY, NOK, NZD, ZAR, USD, MXN, ILS, GBP, KRW, MYR, EUR
+        </div>
+    </body>
+</html>

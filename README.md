@@ -4,3 +4,4 @@
 *   [Counter](counter.html)
 *   [Interval - Auto Counter](interval.html)
 *   [Local Storage](storage.html)
+*   [Currency](currency.html)
