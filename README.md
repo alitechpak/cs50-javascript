@@ -1,4 +1,5 @@
 # cs50-javascript
 
 *   [Tasks](task.html)
+*   [Counter](counter.html)
 *   [Interval - Auto Counter](interval.html)
