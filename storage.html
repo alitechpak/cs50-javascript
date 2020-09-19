@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Local Storage</title>
+        <script>
+            // Set starting value of counter to 0
+            if (!localStorage.getItem('counter')) // Retrieve the key's value by its calling its name
+                localStorage.setItem('counter', 0); // Set key name and its value in local storage
+
+                document.addEventListener('DOMContentLoaded', function() {
+                // Set heading to the current value inside local storage
+                document.querySelector('h1').innerHTML = counter;
+                document.querySelector('#count').onclick = count; // Click "count" button for count
+                document.querySelector('#reset').onclick = reset; // Click "reset" button for reset
+            });
+            // Retrieve counter value from local storage
+            let counter = localStorage.getItem('counter');
+
+            function count() {
+                counter++; // Update counter
+                document.querySelector('h1').innerHTML = counter;
+                localStorage.setItem('counter', counter); // Store counter last value in local storage
+            };
+
+            function reset() {
+                counter = 0; // Update counter to zero
+                document.querySelector('h1').innerHTML = counter;
+                localStorage.setItem('counter', counter); // Store counter's last value in local storage
+            };
+        </script>
+    </head>
+    <body>
+        <h1 id="counter"></h1>
+        <button id="count">Count</button>
+        <button id="reset">Reset</button>
+    </body>
+</html>
