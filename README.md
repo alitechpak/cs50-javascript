@@ -3,3 +3,4 @@
 *   [Tasks](task.html)
 *   [Counter](counter.html)
 *   [Interval - Auto Counter](interval.html)
+*   [Local Storage](storage.html)
