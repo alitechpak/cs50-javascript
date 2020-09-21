@@ -5,3 +5,4 @@
 *   [Interval - Auto Counter](interval.html)
 *   [Local Storage](storage.html)
 *   [Currency](currency.html)
+*   [Single Page - Django](singlepage1)
