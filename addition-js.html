@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Addition-JS</title>
+        <style>
+            #app {
+                text-align: center;
+                font-family: sans-serif;
+            }
+            #problem {
+                font-size: 72px;
+            }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let num1 = 1;
+                let num2 = 2;
+
+                let answer = num1 + num2;
+
+                let n1 = document.querySelector("#num1")
+                n1.innerHTML = `${num1}`;
+
+                let n2 = document.querySelector("#num2");
+                n2.innerHTML = `${num2}`;
+
+                let btn = document.querySelector("btn");
+                
+                btn.addEventListener('onclick', function() {
+                    let response = document.querySelector("#response").value;
+                    response = Number(response);
+
+                    if (response === answer) {
+                        alert('Correct');
+                        window.location.reload()
+                    }
+                    else {
+                        alert(`Sorry! The right answer is ${answer}.`)
+                        window.location.reload()
+                    }
+                })
+            })
+
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <div id="problem"><span id="num1"></span> + <span id="num2"></span></div>
+            <input type="number" value="" id="response">
+            <button id="btn">Submit</button>
+            <div>Score: <span id="score"></span></div>
+        </div>
+    </body>
+</html>

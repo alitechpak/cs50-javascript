@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello</title>
+        <!--`React`: Defines the component and their behavior-->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <!--`ReactDOM`: Takes React components and inserts them into the DOM-->
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <!--`Babel`: Translates from JSX (React's language) to JavaScript-->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app" />
+        <script type="text/babel"> // This signals to browser that the following script needs to be translated using Babel
+
+            // Create a component called "App"
+            class App extends React.Component {
+
+                // All components are required to have this function, and whatever is returned will be added to the DOM
+                render() {
+                    return (
+                        // React has the ability to render components within other components, i.e. example below
+                        <div>
+                            Text is returned 
+
+                            <Hello name="Harry" />
+                            <Hello name ="Ron" />
+                            <Hello name="Hermione" />
+                        </div>
+                    );
+                }
+            }
+
+            class Hello extends React.Component {
+                render() {
+                    return (
+                        <h1>Hello, {this.props.name}!</h1>
+                    );
+                }
+            }
+
+            // This function takes two arguments
+            // i.   A component to render
+            // ii.  An element in the DOM inside of which the component should be rendered
+            ReactDOM.render(<App />, document.querySelector("#app"));
+        </script>
+    </body>
+</html>

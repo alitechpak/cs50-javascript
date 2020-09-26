@@ -7,23 +7,30 @@
 
             document.addEventListener('DOMContentLoaded', function() {
                 document.querySelector('button').onclick = count; // On button click call the function "count"
+                document.querySelector("#reset").onclick = reset; // On button click reset the counter to 0
             });
 
             // Define the function "count"
             function count() {
                 counter++;
                 
-                if (counter % 10 === 10) {
+                if (counter % 10 === 0) {
                     alert(`Count is now ${counter}`);
                 }
                 // Update the counter
+                document.querySelector('h1').innerHTML = counter;                
+            };
+
+            function reset() {
+                counter = 0;
                 document.querySelector('h1').innerHTML = counter;
-            }
+            };
         </script>
     </head>
     <body>
         <h1>0</h1>
 
         <button>Count</button>
+        <button id="reset">Reset</button>
     </body>
 </html>
